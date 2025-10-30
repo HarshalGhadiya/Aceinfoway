@@ -1,0 +1,4 @@
+# Proxy API calls from the static site to the backend on Render
+# Rename this file to _redirects and replace YOUR_SERVER_SERVICE
+
+/api/*  https://YOUR_SERVER_SERVICE.onrender.com/api/:splat  200
