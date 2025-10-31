@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-export const api = axios.create({ baseURL: '/api' });
+// Use environment variable for production, fallback to /api for local development
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+
+export const api = axios.create({ baseURL: API_BASE_URL });
 
 export async function getDashboard() {
   const { data } = await api.get('/dashboard/dashboard');

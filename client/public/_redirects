@@ -1,0 +1,3 @@
+# Proxy API calls from the static site to the backend on Render
+/api/*  https://aceinfoway-backend.onrender.com/api/:splat  200
+
