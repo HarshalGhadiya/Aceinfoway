@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { getOrders } from '../../api/http.js';
+import Loader from '../common/Loader.jsx';
 
 export default function OrdersTable() {
   const [rows, setRows] = useState([]);
@@ -49,7 +50,11 @@ export default function OrdersTable() {
           </thead>
           <tbody>
             {loading ? (
-              <tr><td colSpan="4">Loading...</td></tr>
+              <tr>
+                <td colSpan="4" style={{ padding: '40px' }}>
+                  <Loader size="medium" message="Loading orders..." />
+                </td>
+              </tr>
             ) : rows.length === 0 ? (
               <tr><td colSpan="4">No data</td></tr>
             ) : [...rows].sort((a,b) => {
