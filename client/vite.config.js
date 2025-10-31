@@ -14,7 +14,7 @@ export default defineConfig({
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // your backend URL
+        target: 'https://aceinfoway-backend.onrender.com', // your backend URL
         changeOrigin: true, // needed for CORS handling
         secure: false,
       },
