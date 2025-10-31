@@ -7,6 +7,8 @@ import { connectDB } from './config/db.js';
 import { logger } from './config/logger.js';
 import apiRoutes from './routes/index.js';
 import { errorHandler, notFound } from './middlewares/errorHandler.js';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './config/swagger.js';
 
 export async function createApp() {
   await connectDB();
@@ -34,6 +36,9 @@ export async function createApp() {
 
   // API routes
   app.use('/api', apiRoutes);
+
+  // Swagger UI
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
   // Error handling middlewares
   app.use(notFound);
